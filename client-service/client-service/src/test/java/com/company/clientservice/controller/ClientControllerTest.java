@@ -67,15 +67,15 @@ public class ClientControllerTest {
         person1.setName("John");
         person1.setAge(21);
 
-        String outputJson = mapper.writeValueAsString(person1);
+        String outputJson = "null";
 
-        when(serviceLayer.findPersonByName("John")).thenReturn(null);
+        when(serviceLayer.findPersonByName("Steve")).thenReturn(null);
 
 
-//        this.mockMvc.perform(get("/clientfe/person/Steve"))
-//                .andDo(print())
-//                .andExpect(status().isOk())
-//                .andExpect(throw new NullPointerException());
+        this.mockMvc.perform(get("/clientfe/person/Steve"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().json(outputJson));
     }
 
     @Test

@@ -58,7 +58,7 @@ public class ServiceLayerTest {
 
         assertEquals(person,fromService);
 
-        
+
         Mockito.when(personClient.addPerson(person)).thenReturn(person1);
         Mockito.when(personClient.findPersonByName("John")).thenReturn(person1);
         Mockito.when(personClient.findPersonByName("Steve")).thenReturn(null);
