@@ -58,19 +58,18 @@ public class ServiceLayerTest {
 
         assertEquals(person,fromService);
 
-
-        //integration test
+        
         Mockito.when(personClient.addPerson(person)).thenReturn(person1);
         Mockito.when(personClient.findPersonByName("John")).thenReturn(person1);
+        Mockito.when(personClient.findPersonByName("Steve")).thenReturn(null);
 
         Person fromService2 = serviceLayer.addPerson(person);
         assertEquals(fromService2.getAge(),person1.getAge());
         assertEquals(fromService2.getName(),person1.getName());
 
+        Person fromService3 = serviceLayer.findPersonByName("Steve");
+        assertNull(fromService3);
+
     }
 
-//    @Test
-//    public void findPersonByName() {
-//
-//    }
 }
