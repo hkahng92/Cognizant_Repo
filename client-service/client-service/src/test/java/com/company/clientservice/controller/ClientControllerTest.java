@@ -61,6 +61,24 @@ public class ClientControllerTest {
     }
 
     @Test
+    public void findPersonByNameShouldReturnNull() throws Exception{
+        Person person1 = new Person();
+        person1.setPersonId(1);
+        person1.setName("John");
+        person1.setAge(21);
+
+        String outputJson = mapper.writeValueAsString(person1);
+
+        when(serviceLayer.findPersonByName("John")).thenReturn(null);
+
+
+//        this.mockMvc.perform(get("/clientfe/person/Steve"))
+//                .andDo(print())
+//                .andExpect(status().isOk())
+//                .andExpect(throw new NullPointerException());
+    }
+
+    @Test
     public void addPersonShouldReturnAddedPerson() throws Exception{
 
         Person person = new Person();

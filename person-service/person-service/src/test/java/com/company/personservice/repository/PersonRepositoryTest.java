@@ -34,6 +34,7 @@ public class PersonRepositoryTest {
         Person fromDB = personRepository.findByName("John");
         assertEquals(person,fromDB);
 
-
+        Person fromDB2 = personRepository.findByName("Steve");
+        assertNotEquals(person,fromDB2);
     }
 }
